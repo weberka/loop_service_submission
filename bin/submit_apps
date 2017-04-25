@@ -1,0 +1,19 @@
+#!/bin/bash
+
+usage() {
+cat << EOF
+Usage: submit_apps [http://127.0.0.1:5000/apps]
+
+Takes application stream in JSON format from stdin and posts them to the
+given http endpoint
+EOF
+exit -1
+}
+
+if [[ -z $1 ]]; then
+  usage
+fi
+
+# echo $*
+read var_name
+echo $var_name | curl -XPOST ${1} -d @- -H "Content-Type:application/json"
