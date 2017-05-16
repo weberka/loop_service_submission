@@ -1,5 +1,5 @@
 import unittest
-from lib import example_service
+from example import example_service
 import json
 
 
